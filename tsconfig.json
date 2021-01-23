@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
-    "target": "ESNext",                       
+    "target": "ESNext",
     "module": "ES2020",
     "moduleResolution": "Node",
     "noEmit": true,
@@ -10,6 +10,6 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": true
   }
 }
