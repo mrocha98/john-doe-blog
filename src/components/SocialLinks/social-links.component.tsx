@@ -2,7 +2,7 @@ import React from 'react'
 
 import * as S from './social-links.styles'
 import { Icons } from './icons'
-import { links } from './links'
+import { links } from './content'
 
 export type SocialLinksProps = {}
 
