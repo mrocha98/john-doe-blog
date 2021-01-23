@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   siteMetadata: {
     title: `John Doe blog`,
@@ -5,6 +7,15 @@ module.exports = {
     author: `John Doe`,
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        src: path.join(__dirname, 'src'),
+        components: path.join(__dirname, 'src/components'),
+        pages: path.join(__dirname, 'src/pages'),
+        images: path.join(__dirname, 'src/images')
+      }
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
