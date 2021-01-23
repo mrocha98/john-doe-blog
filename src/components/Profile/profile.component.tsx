@@ -2,6 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import * as S from './profile.styles'
+import { Avatar } from 'components/Avatar'
 
 export type ProfileProps = {}
 
@@ -24,6 +25,7 @@ export const Profile = ({}: ProfileProps) => {
 
   return (
     <S.Wraper>
+      <Avatar />
       <h1>{title}</h1>
       <h2>{position}</h2>
       <p>{description}</p>
