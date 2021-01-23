@@ -10,5 +10,3 @@ export const Main = styled.main`
   padding: 0 3.75rem 0 20rem;
   width: 100%;
 `
-
-export const Aside = styled.aside``

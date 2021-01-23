@@ -29,8 +29,8 @@ export const Profile = ({}: ProfileProps) => {
         <Avatar />
         <S.Author>{title}</S.Author>
         <S.Position>{position}</S.Position>
-        <S.Description>{description}</S.Description>
       </S.Link>
+      <S.Description>{description}</S.Description>
     </S.Wraper>
   )
 }

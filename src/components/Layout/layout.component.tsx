@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react'
 
 import * as S from './layout.styles'
-import { Profile } from 'components/Profile'
 import { GlobalStyles } from 'styles/global'
+import { Sidebar } from 'components/Sidebar'
 
 export type LayoutProps = {
   children: ReactNode
@@ -13,9 +13,7 @@ export const Layout = ({ children }: LayoutProps) => {
     <>
       <GlobalStyles />
       <S.Wrapper>
-        <S.Aside>
-          <Profile />
-        </S.Aside>
+        <Sidebar />
         <S.Main>{children}</S.Main>
       </S.Wrapper>
     </>

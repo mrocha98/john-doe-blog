@@ -31,5 +31,5 @@ export const Position = styled.small`
 export const Description = styled.p`
   font-size: 1rem;
   font-weight: 300;
-  line-height: 1.4%;
+  line-height: 1.4;
 `
