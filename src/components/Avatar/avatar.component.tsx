@@ -1,6 +1,8 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import Img, { FixedObject } from 'gatsby-image'
+import { GatsbyImageFixedProps } from 'gatsby-image'
+
+import * as S from './avatar.styles'
 
 export type AvatarProps = {}
 
@@ -17,13 +19,13 @@ export const Avatar = ({}: AvatarProps) => {
     }
   `)
 
-  return <Img fixed={avatarImage.childImageSharp.fixed} />
+  return <S.Wrapper fixed={avatarImage.childImageSharp.fixed} />
 }
 
 type Data = {
   avatarImage: {
     childImageSharp: {
-      fixed: FixedObject
+      fixed: GatsbyImageFixedProps
     }
   }
 }
