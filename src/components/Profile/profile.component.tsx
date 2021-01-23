@@ -1,20 +1,42 @@
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import * as S from './profile.styles'
 
 export type ProfileProps = {}
 
 export const Profile = ({}: ProfileProps) => {
+  const {
+    site: {
+      siteMetadata: { title, description, position }
+    }
+  } = useStaticQuery<Data>(graphql`
+    query MySiteData {
+      site {
+        siteMetadata {
+          title
+          position
+          description
+        }
+      }
+    }
+  `)
+
   return (
     <S.Wraper>
-      <h1>John Doe</h1>
-      <h2>Professional Imaginary Person</h2>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit in
-        recusandae ipsam quis amet doloribus, culpa quaerat dolores, provident
-        ipsa atque, illo unde repudiandae. Nostrum nisi nihil perspiciatis
-        beatae corrupti?
-      </p>
+      <h1>{title}</h1>
+      <h2>{position}</h2>
+      <p>{description}</p>
     </S.Wraper>
   )
+}
+
+type Data = {
+  site: {
+    siteMetadata: {
+      title: string
+      position: string
+      description: string
+    }
+  }
 }
