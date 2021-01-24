@@ -8,7 +8,7 @@ export type PostItemProps = {
   title: string
   description: string
   date: string
-  timeToRead: string
+  timeToRead: string | number
   background?: string
 }
 
