@@ -59,7 +59,7 @@ exports.createPages = ({ graphql, actions }) => {
       }) => {
         createPage({
           path: slug,
-          component: path.resolve(`./src/templates/blog-post.tsx`),
+          component: path.resolve(`./src/templates/blog-post.template.tsx`),
           context: {
             slug
           }
@@ -77,7 +77,7 @@ exports.createPages = ({ graphql, actions }) => {
 
       createPage({
         path: IS_HOME_PAGE ? '/' : `/page/${index + 1}`,
-        component: path.resolve('./src/templates/blog-list.tsx'),
+        component: path.resolve('./src/templates/blog-list.template.tsx'),
         context: {
           limit: postsPerPage,
           skip,
