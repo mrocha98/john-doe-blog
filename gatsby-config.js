@@ -20,6 +20,14 @@ module.exports = {
       }
     },
     {
+      // needs to be the first filesystem config to wirk with gatsby-remark-images
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `uploads`,
+        path: `${__dirname}/static/assets/img`
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -36,7 +44,23 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: []
+        plugins: [
+          {
+            resolve: 'gatsby-remark-relative-images',
+            options: {
+              name: 'uploads'
+            }
+          },
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 960,
+              linkImagesToOriginal: false
+            }
+          },
+          `gatsby-remark-lazy-load`,
+          `gatsby-remark-prismjs` // needs to be the latest to work
+        ]
       }
     },
     `gatsby-plugin-react-helmet`,

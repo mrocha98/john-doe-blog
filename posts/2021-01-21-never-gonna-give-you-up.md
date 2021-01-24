@@ -6,7 +6,7 @@ category: misc
 background: "#47650b"
 ---
 
-# Never gonna give you up
+<iframe width="788.54" height="443" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media"></iframe>
 
 We're no strangers to love
 
