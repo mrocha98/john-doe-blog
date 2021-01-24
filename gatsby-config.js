@@ -15,7 +15,8 @@ module.exports = {
         components: path.join(__dirname, 'src/components'),
         pages: path.join(__dirname, 'src/pages'),
         styles: path.join(__dirname, 'src/styles'),
-        images: path.join(__dirname, 'src/images')
+        images: path.join(__dirname, 'src/images'),
+        templates: path.join(__dirname, 'src/templates')
       }
     },
     {

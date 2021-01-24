@@ -1,3 +1,4 @@
+const path = require('path')
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // To add the slug field to each post
@@ -21,4 +22,38 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value: `/${title}`
     })
   }
+}
+
+// To create the posts pages
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
+  return graphql(/* GraphQL */ `
+    query GET_SLUGS {
+      allMarkdownRemark {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `).then((result) => {
+    result.data.allMarkdownRemark.edges.forEach(
+      ({
+        node: {
+          fields: { slug }
+        }
+      }) => {
+        createPage({
+          path: slug,
+          component: path.resolve(`./src/templates/blog-post.tsx`),
+          context: {
+            slug
+          }
+        })
+      }
+    )
+  })
 }
