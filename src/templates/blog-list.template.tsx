@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
+import * as S from './blog-list.styles'
 import { Layout } from 'components/Layout'
 import { SEO } from 'components/SEO'
 import { PostItem } from 'components/PostItem'
@@ -46,30 +47,31 @@ export default function BlogList({ data, pageContext }: BlogListProps) {
   return (
     <Layout>
       <SEO title="Home" />
-      {posts.map(
-        (
-          {
-            node: {
-              fields: { slug },
-              frontmatter: { title, description, category, date, background },
-              timeToRead
-            }
-          },
-          index
-        ) => (
-          <PostItem
-            key={index}
-            slug={slug}
-            title={title}
-            description={description}
-            category={category}
-            date={date}
-            background={background}
-            timeToRead={timeToRead}
-          />
-        )
-      )}
-
+      <S.ListWrapper>
+        {posts.map(
+          (
+            {
+              node: {
+                fields: { slug },
+                frontmatter: { title, description, category, date, background },
+                timeToRead
+              }
+            },
+            index
+          ) => (
+            <PostItem
+              key={index}
+              slug={slug}
+              title={title}
+              description={description}
+              category={category}
+              date={date}
+              background={background}
+              timeToRead={timeToRead}
+            />
+          )
+        )}
+      </S.ListWrapper>
       <Pagination
         isFirstPage={isFirstPage}
         isLastPage={isLastPage}

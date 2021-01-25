@@ -18,6 +18,8 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{
             __html: `
             (function() {
+              /*********** theme change ***********/
+
               window.__onThemeChange = function() {};
               function setTheme(newTheme) {
                 window.__theme = newTheme;
@@ -36,6 +38,31 @@ export default function HTML(props) {
                 } catch (err) {}
               }
               setTheme(preferredTheme || 'light');
+
+              /**************************************/
+
+              /*********** display change ***********/
+              
+              window.__onDisplayChange = function() {};
+              function setDisplay(newDisplay) {
+                window.__display = newDisplay;
+                preferredDisplay = newDisplay;
+                document.body.id = newDisplay;
+                window.__onDisplayChange(newDisplay);
+              }
+              var preferredDisplay;
+              try {
+                preferredDisplay = localStorage.getItem('display');
+              } catch (err) { }
+              window.__setPreferredDisplay = function(newDisplay) {
+                setDisplay(newDisplay);
+                try {
+                  localStorage.setItem('display', newDisplay);
+                } catch (err) {}
+              }
+              setDisplay(preferredDisplay || 'list');
+
+              /**************************************/
             })();
           `
           }}
