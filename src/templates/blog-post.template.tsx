@@ -5,6 +5,7 @@ import * as S from './blog-post.styles'
 import { Layout } from 'components/Layout'
 import { SEO } from 'components/SEO'
 import { RecommendPosts } from 'components/RecommendPosts'
+import { Comments } from 'components/Comments'
 
 type PostData = {
   title: string
@@ -25,7 +26,7 @@ type BlogPostProps = {
       frontmatter: PostData
       html: string
       timeToRead: string | number
-    }
+    } & Pick<RecommendData, 'fields'>
   }
   pageContext: {
     nextPost?: RecommendData
@@ -37,6 +38,7 @@ export default function BlogPost({ data, pageContext }: BlogPostProps) {
   const {
     html,
     timeToRead,
+    fields: { slug },
     frontmatter: { title, description, date }
   } = data.markdownRemark
 
@@ -56,6 +58,7 @@ export default function BlogPost({ data, pageContext }: BlogPostProps) {
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </S.MainContent>
       <RecommendPosts previous={previousPost} next={nextPost} />
+      <Comments url={slug} title={title} />
     </Layout>
   )
 }
@@ -63,6 +66,9 @@ export default function BlogPost({ data, pageContext }: BlogPostProps) {
 export const query = graphql`
   query GET_POST_DATA($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
+      fields {
+        slug
+      }
       frontmatter {
         title
         description
