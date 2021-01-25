@@ -17,12 +17,12 @@ export const List = styled.ul`
 export const Item = styled.li``
 
 export const Link = styled.a`
-  color: #8899a6;
+  color: var(--texts);
   text-decoration: none;
   transition: color 500ms;
 
   &:hover {
-    color: #1fa1f2;
+    color: var(--highlight);
   }
 `
 

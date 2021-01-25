@@ -55,7 +55,7 @@ export default function BlogPost({ data, pageContext }: BlogPostProps) {
         <S.Description>{description}</S.Description>
       </S.Header>
       <S.MainContent>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <article dangerouslySetInnerHTML={{ __html: html }} />
       </S.MainContent>
       <RecommendPosts previous={previousPost} next={nextPost} />
       <Comments url={slug} title={title} />

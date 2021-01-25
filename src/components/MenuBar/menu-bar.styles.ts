@@ -5,8 +5,8 @@ import { Link as GatsbyLink } from 'gatsby'
 
 export const Wrapper = styled.div`
   align-items: center;
-  background: #192734;
-  border-left: 1px solid #38444d;
+  background: var(--mediumBackground);
+  border-left: 1px solid var(--borders);
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -27,14 +27,23 @@ export const Link = styled(GatsbyLink)`
 `
 
 export const Item = styled.span`
-  color: #8899a6;
+  color: var(--texts);
   cursor: pointer;
   display: block;
   height: 3.75rem;
   padding: 1.1rem;
   position: relative;
   width: 3.75rem;
+
   &:hover {
-    color: #1fa1f2;
+    color: var(--highlight);
+  }
+
+  &.light {
+    color: #d4d400;
+
+    &:hover {
+      color: #e2e240;
+    }
   }
 `

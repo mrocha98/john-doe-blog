@@ -6,21 +6,21 @@ import { Link as GatsbyLink } from 'gatsby'
 
 export const Wrapper = styled.section`
   align-items: center;
-  border-top: 1px solid #38444d;
-  color: #8899a6;
+  border-top: 1px solid var(--borders);
+  color: var(--texts);
   display: flex;
   padding: 1.5rem 3rem;
   justify-content: space-between;
 `
 
 export const Link = styled(GatsbyLink)`
-  color: #8899a6;
+  color: var(--texts);
   text-decoration: none;
   font-weight: bold;
   transition: color 500ms;
 
   &:hover {
-    color: #1fa1f2;
+    color: var(--highlight);
     text-decoration: underline;
   }
 `

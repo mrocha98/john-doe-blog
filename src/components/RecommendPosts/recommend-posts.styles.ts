@@ -4,16 +4,16 @@ import { Link as GatsbyLink } from 'gatsby'
 // import { RecommendPostsProps } from '.'
 
 export const Wrapper = styled.div`
-  border-bottom: 1px solid #38444d;
-  border-top: 1px solid #38444d;
-  background: #192734;
+  border-bottom: 1px solid var(--borders);
+  border-top: 1px solid var(--borders);
+  background: var(--mediumBackground);
   display: flex;
 `
 
 export const RecommendedLink = styled(GatsbyLink)`
   align-items: center;
-  background: #192734;
-  color: #1fa1f2;
+  background: var(--mediumBackground);
+  color: var(--highlight);
   display: flex;
   padding: 3rem;
   text-decoration: none;
@@ -21,11 +21,11 @@ export const RecommendedLink = styled(GatsbyLink)`
   width: 50%;
 
   &:hover {
-    background: #38444d;
+    background: var(--borders);
   }
 
   &.previous {
-    border-right: 1px solid #38444d;
+    border-right: 1px solid var(--borders);
   }
 
   &.next {

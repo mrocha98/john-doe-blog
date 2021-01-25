@@ -12,8 +12,6 @@ export type PostItemProps = {
   background?: string
 }
 
-const DEFAULT_BACKGROUND = '#47650b'
-
 export const PostItem = ({
   slug,
   category,
@@ -21,7 +19,7 @@ export const PostItem = ({
   description,
   date,
   timeToRead,
-  background = DEFAULT_BACKGROUND
+  background
 }: PostItemProps) => (
   <S.Link to={slug}>
     <S.Wrapper>

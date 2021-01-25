@@ -5,18 +5,19 @@ import { PostItemProps } from '.'
 
 export const Wrapper = styled.section`
   align-items: center;
-  border-bottom: 1px solid #38444d;
+  border-bottom: 1px solid var(--borders);
   display: flex;
   padding: 2rem 3rem;
   width: 100%;
 `
 
 export const Link = styled(GatsbyLink)`
-  color: #8899a6;
+  color: var(--texts);
   display: flex;
   text-decoration: none;
+
   &:hover {
-    color: #1fa1f2;
+    color: var(--highlight);
   }
 `
 
@@ -25,9 +26,9 @@ type TagProps = Pick<PostItemProps, 'background'>
 export const Tag = styled.div<TagProps>`
   ${({ background }) => css`
     align-items: center;
-    background: ${background};
+    background: ${background || 'var(--highlight)'};
     border-radius: 50%;
-    color: #fff;
+    color: var(--background);
     display: flex;
     font-size: 1.3rem;
     font-weight: 700;

@@ -14,15 +14,15 @@ export const Item = styled.li`
   padding: 0.5rem 0;
 
   .active {
-    color: #1fa1f2;
+    color: var(--highlight);
   }
 `
 
 export const Link = styled(GatsbyLink)`
-  color: #8899a6;
+  color: var(--texts);
   text-decoration: none;
 
   &:hover {
-    color: #1fa1f2;
+    color: var(--highlight);
   }
 `

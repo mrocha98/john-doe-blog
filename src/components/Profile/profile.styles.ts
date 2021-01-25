@@ -2,18 +2,18 @@ import styled from 'styled-components'
 import { Link as GatsbyLink } from 'gatsby'
 
 export const Wraper = styled.section`
-  color: #8899a6;
+  color: var(--texts);
   display: flex;
   flex-direction: column;
 `
 
 export const Link = styled(GatsbyLink)`
-  color: #8899a6;
+  color: var(--texts);
   text-decoration: none;
   transition: color 500ms;
 
   &:hover {
-    color: #1fa1f2;
+    color: var(--highlight);
   }
 `
 

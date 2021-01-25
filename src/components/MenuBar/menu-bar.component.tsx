@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Home } from '@styled-icons/boxicons-solid/Home'
 import { SearchAlt2 as Search } from '@styled-icons/boxicons-regular/SearchAlt2'
 import { UpArrowAlt as Arrow } from '@styled-icons/boxicons-regular/UpArrowAlt'
@@ -10,6 +10,15 @@ import * as S from './menu-bar.styles'
 export type MenuBarProps = {}
 
 export const MenuBar = ({}: MenuBarProps) => {
+  const [theme, setTheme] = useState<string | null>(null)
+
+  const isDarkMode = theme === 'dark'
+
+  useEffect(() => {
+    setTheme(window.__theme)
+    window.__onThemeChange = () => setTheme(window.__theme)
+  }, [])
+
   return (
     <S.Wrapper>
       <S.Group>
@@ -25,7 +34,13 @@ export const MenuBar = ({}: MenuBarProps) => {
         </S.Link>
       </S.Group>
       <S.Group>
-        <S.Item title="Change theme">
+        <S.Item
+          className={theme || ''}
+          title="Change theme"
+          onClick={() => {
+            window.__setPreferredTheme(isDarkMode ? 'light' : 'dark')
+          }}
+        >
           <Light />
         </S.Item>
         <S.Item title="Change view mode">
