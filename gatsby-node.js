@@ -45,6 +45,22 @@ exports.createPages = ({ graphql, actions }) => {
             }
             timeToRead
           }
+          next {
+            frontmatter {
+              title
+            }
+            fields {
+              slug
+            }
+          }
+          previous {
+            frontmatter {
+              title
+            }
+            fields {
+              slug
+            }
+          }
         }
       }
     }
@@ -53,6 +69,8 @@ exports.createPages = ({ graphql, actions }) => {
 
     posts.forEach(
       ({
+        next,
+        previous,
         node: {
           fields: { slug }
         }
@@ -61,7 +79,9 @@ exports.createPages = ({ graphql, actions }) => {
           path: slug,
           component: path.resolve(`./src/templates/blog-post.template.tsx`),
           context: {
-            slug
+            slug,
+            previousPost: next,
+            nextPost: previous
           }
         })
       }
