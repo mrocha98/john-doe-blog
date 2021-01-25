@@ -3,7 +3,7 @@ date: 2021-01-24 17:15:39
 title: Never gonna give you up
 description: Never gonna let you down
 category: misc
-background: "#47650b"
+background: "#47650a"
 ---
 
 <iframe width="788.54" height="443" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media"></iframe>

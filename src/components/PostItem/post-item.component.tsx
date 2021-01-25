@@ -8,7 +8,7 @@ export type PostItemProps = {
   title: string
   description: string
   date: string
-  timeToRead: string | number
+  timeToRead?: string | number
   background?: string
 }
 
@@ -22,19 +22,17 @@ export const PostItem = ({
   date,
   timeToRead,
   background = DEFAULT_BACKGROUND
-}: PostItemProps) => {
-  return (
-    <S.Link to={slug}>
-      <S.Wrapper>
-        <S.Tag background={background}>{category}</S.Tag>
-        <S.Info>
-          <S.Date>
-            {date} + {timeToRead} minutes of reading
-          </S.Date>
-          <S.Title>{title}</S.Title>
-          <S.Description>{description}</S.Description>
-        </S.Info>
-      </S.Wrapper>
-    </S.Link>
-  )
-}
+}: PostItemProps) => (
+  <S.Link to={slug}>
+    <S.Wrapper>
+      <S.Tag background={background}>{category}</S.Tag>
+      <S.Info>
+        <S.Date>
+          {date} {!!timeToRead && <>&#43; {timeToRead} minutes of reading</>}
+        </S.Date>
+        <S.Title>{title}</S.Title>
+        <S.Description>{description}</S.Description>
+      </S.Info>
+    </S.Wrapper>
+  </S.Link>
+)

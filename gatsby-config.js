@@ -1,4 +1,7 @@
+require('dotenv').config()
+
 const path = require('path')
+const queries = require('./src/utils/algolia-querys')
 
 module.exports = {
   siteMetadata: {
@@ -20,7 +23,7 @@ module.exports = {
       }
     },
     {
-      // needs to be the first filesystem config to wirk with gatsby-remark-images
+      // needs to be the first filesystem config to work with gatsby-remark-images
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `uploads`,
@@ -64,9 +67,20 @@ module.exports = {
       }
     },
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
+        queries,
+        chunkSize: 10000,
+        enablePartialUpdates: true
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
