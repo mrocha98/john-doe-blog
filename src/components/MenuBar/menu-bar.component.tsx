@@ -51,6 +51,7 @@ export const MenuBar = ({}: MenuBarProps) => {
         </S.Item>
         <S.Item
           title="Change view mode"
+          className="display"
           onClick={() => {
             window.__setPreferredDisplay(isListMode ? 'grid' : 'list')
           }}

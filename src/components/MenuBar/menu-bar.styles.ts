@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import media from 'styled-media-query'
 import { Link as GatsbyLink } from 'gatsby'
 
 // import { MenuBarProps } from '.'
@@ -15,15 +16,36 @@ export const Wrapper = styled.div`
   position: fixed;
   right: 0;
   width: 3.75rem;
+  transition: background 0.5s;
+
+  ${media.lessThan('large')`
+    border-top: 1px solid var(--borders);
+    bottom: 0;
+    flex-direction: row;
+    height: auto;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+  `}
 `
 
 export const Group = styled.div`
   display: flex;
   flex-direction: column;
+
+  ${media.lessThan('large')`
+    flex-direction: row;
+  `}
 `
 
 export const Link = styled(GatsbyLink)`
   display: block;
+
+  &.active {
+    span {
+      color: var(--highlight);
+    }
+  }
 `
 
 export const Item = styled.span`
@@ -46,4 +68,23 @@ export const Item = styled.span`
       color: #e2e240;
     }
   }
+
+  &.display {
+    ${media.lessThan('medium')`
+      display: none;
+    `}
+  }
+
+  ${media.greaterThan('large')`
+    &:hover {
+      color: var(--highlight);
+    }
+  `}
+
+  ${media.lessThan('large')`
+    height: 3.2rem;
+    padding: .9rem;
+    position: relative;
+    width: 3.2rem;
+  `}
 `

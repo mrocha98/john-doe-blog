@@ -11,6 +11,11 @@ export const Wrapper = styled.section`
   display: flex;
   padding: 1.5rem 3rem;
   justify-content: space-between;
+
+  ${media.lessThan('large')`
+    font-size: 0.9rem;
+    padding: 1rem;
+  `}
 `
 
 export const Link = styled(GatsbyLink)`

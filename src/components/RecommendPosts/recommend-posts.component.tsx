@@ -19,14 +19,14 @@ export type RecommendPostsProps = {
 export const RecommendPosts = ({ next, previous }: RecommendPostsProps) => (
   <S.Wrapper>
     {!!previous && (
-      <S.RecommendedLink to={previous.fields.slug} className="previous">
+      <S.Link to={previous.fields.slug} className="previous">
         {previous.frontmatter.title}
-      </S.RecommendedLink>
+      </S.Link>
     )}
     {!!next && (
-      <S.RecommendedLink to={next.fields.slug} className="next">
+      <S.Link to={next.fields.slug} className="next">
         {next.frontmatter.title}
-      </S.RecommendedLink>
+      </S.Link>
     )}
   </S.Wrapper>
 )

@@ -25,10 +25,12 @@ export const Profile = ({}: ProfileProps) => {
 
   return (
     <S.Wraper>
-      <S.Link to="#">
+      <S.Link to="/about">
         <Avatar />
-        <S.Author>{title}</S.Author>
-        <S.Position>{position}</S.Position>
+        <S.Author>
+          {title}
+          <S.Position>{position}</S.Position>
+        </S.Author>
       </S.Link>
       <S.Description>{description}</S.Description>
     </S.Wraper>

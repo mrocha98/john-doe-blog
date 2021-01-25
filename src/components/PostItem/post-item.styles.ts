@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 import { Link as GatsbyLink } from 'gatsby'
 
 import { PostItemProps } from '.'
@@ -9,6 +10,12 @@ export const Wrapper = styled.section`
   display: flex;
   padding: 2rem 3rem;
   width: 100%;
+
+  ${media.lessThan('large')`
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 2rem 1rem;
+  `}
 
   body#grid & {
     border: none;
@@ -48,6 +55,15 @@ export const Tag = styled.div<TagProps>`
     min-width: 90px;
     text-transform: uppercase;
 
+    ${media.lessThan('large')`
+    border-radius: 0;
+    font-size: 1rem;
+    min-height: auto;
+    min-width: auto;
+    padding: .2rem .5rem;
+    margin-bottom: .7rem;
+  `}
+
     body#grid & {
       margin-bottom: 1.5rem;
     }
@@ -58,6 +74,10 @@ export const Info = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 1.5rem;
+
+  ${media.lessThan('large')`
+    margin: 0;
+  `}
 
   body#grid & {
     line-height: 1.1;

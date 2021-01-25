@@ -1,31 +1,35 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { GatsbyImageFixedProps } from 'gatsby-image'
+import { GatsbyImageFluidProps } from 'gatsby-image'
 
 import * as S from './avatar.styles'
 
 export type AvatarProps = {}
 
 export const Avatar = ({}: AvatarProps) => {
-  const { avatarImage } = useStaticQuery<Data>(graphql`
+  const {
+    avatarImage: {
+      childImageSharp: { fluid }
+    }
+  } = useStaticQuery<Data>(graphql`
     query {
       avatarImage: file(relativePath: { eq: "profile-photo.jpg" }) {
         childImageSharp {
-          fixed(width: 60, height: 60) {
-            ...GatsbyImageSharpFixed
+          fluid(maxWidth: 90) {
+            ...GatsbyImageSharpFluid_tracedSVG
           }
         }
       }
     }
   `)
 
-  return <S.Wrapper fixed={avatarImage.childImageSharp.fixed} />
+  return <S.Wrapper fluid={fluid} />
 }
 
 type Data = {
   avatarImage: {
     childImageSharp: {
-      fixed: GatsbyImageFixedProps
+      fluid: GatsbyImageFluidProps
     }
   }
 }

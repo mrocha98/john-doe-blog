@@ -1,10 +1,15 @@
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 // import { SocialLinksProps } from '.'
 
 export const Wrapper = styled.nav`
   margin: 2rem auto;
   width: 100%;
+
+  ${media.lessThan('large')`
+    display: none;
+  `}
 `
 
 export const List = styled.ul`

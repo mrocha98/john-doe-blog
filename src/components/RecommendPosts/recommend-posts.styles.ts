@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import media from 'styled-media-query'
 import { Link as GatsbyLink } from 'gatsby'
 
 // import { RecommendPostsProps } from '.'
@@ -10,7 +11,7 @@ export const Wrapper = styled.div`
   display: flex;
 `
 
-export const RecommendedLink = styled(GatsbyLink)`
+export const Link = styled(GatsbyLink)`
   align-items: center;
   background: var(--mediumBackground);
   color: var(--highlight);
@@ -19,6 +20,12 @@ export const RecommendedLink = styled(GatsbyLink)`
   text-decoration: none;
   transition: background 0.5s;
   width: 50%;
+
+  ${media.lessThan('large')`
+    padding: 2rem 1rem;
+    line-height: 1.3;
+    font-size: .9rem;
+  `}
 
   &:hover {
     background: var(--borders);
