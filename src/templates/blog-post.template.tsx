@@ -49,7 +49,7 @@ export default function BlogPost({ data, pageContext }: BlogPostProps) {
       <SEO title={title} />
       <S.Header>
         <S.Date>
-          {date} &centerdot; {timeToRead} minutes of reading
+          {date} &bull; {timeToRead} minutes of reading
         </S.Date>
         <S.Title>{title}</S.Title>
         <S.Description>{description}</S.Description>
