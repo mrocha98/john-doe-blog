@@ -1,5 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import * as S from './profile.styles'
 import { Avatar } from 'components/Avatar'
@@ -25,13 +26,13 @@ export const Profile = ({}: ProfileProps) => {
 
   return (
     <S.Wraper>
-      <S.Link to="/about">
+      <AniLink to="/about" cover direction="right" bg="#16202c" duration={0.6}>
         <Avatar />
         <S.Author>
           {title}
           <S.Position>{position}</S.Position>
         </S.Author>
-      </S.Link>
+      </AniLink>
       <S.Description>{description}</S.Description>
     </S.Wraper>
   )

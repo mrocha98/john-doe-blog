@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Home } from '@styled-icons/boxicons-solid/Home'
-import { SearchAlt2 as Search } from '@styled-icons/boxicons-regular/SearchAlt2'
-import { UpArrowAlt as Arrow } from '@styled-icons/boxicons-regular/UpArrowAlt'
-import { Bulb as Light } from '@styled-icons/boxicons-regular/Bulb'
-import { Grid } from '@styled-icons/boxicons-solid/Grid'
-import { ThList as List } from '@styled-icons/typicons/ThList'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import { Arrow, Grid, Home, Light, List, Search } from './icons'
 
 import * as S from './menu-bar.styles'
 
@@ -28,16 +24,30 @@ export const MenuBar = ({}: MenuBarProps) => {
   return (
     <S.Wrapper>
       <S.Group>
-        <S.Link to="/" title="Go back to Home">
+        <AniLink
+          to="/"
+          title="Go back to Home"
+          cover
+          direction="left"
+          bg="#16202c"
+          duration={0.6}
+        >
           <S.Item>
             <Home />
           </S.Item>
-        </S.Link>
-        <S.Link to="/search/" title="Search">
+        </AniLink>
+        <AniLink
+          to="/search/"
+          title="Search"
+          cover
+          direction="left"
+          bg="#16202c"
+          duration={0.6}
+        >
           <S.Item>
             <Search />
           </S.Item>
-        </S.Link>
+        </AniLink>
       </S.Group>
       <S.Group>
         <S.Item

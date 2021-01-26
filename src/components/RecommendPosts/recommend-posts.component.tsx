@@ -1,4 +1,5 @@
 import React from 'react'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import * as S from './recommend-posts.styles'
 
@@ -19,14 +20,28 @@ export type RecommendPostsProps = {
 export const RecommendPosts = ({ next, previous }: RecommendPostsProps) => (
   <S.Wrapper>
     {!!previous && (
-      <S.Link to={previous.fields.slug} className="previous">
+      <AniLink
+        to={previous.fields.slug}
+        className="previous"
+        cover
+        direction="left"
+        bg="#16202c"
+        duration={0.6}
+      >
         {previous.frontmatter.title}
-      </S.Link>
+      </AniLink>
     )}
     {!!next && (
-      <S.Link to={next.fields.slug} className="next">
+      <AniLink
+        to={next.fields.slug}
+        className="next"
+        cover
+        direction="right"
+        bg="#16202c"
+        duration={0.6}
+      >
         {next.frontmatter.title}
-      </S.Link>
+      </AniLink>
     )}
   </S.Wrapper>
 )

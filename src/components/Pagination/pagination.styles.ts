@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
-import { Link as GatsbyLink } from 'gatsby'
 
 // import { PaginationProps } from '.'
 
@@ -16,17 +15,17 @@ export const Wrapper = styled.section`
     font-size: 0.9rem;
     padding: 1rem;
   `}
-`
 
-export const Link = styled(GatsbyLink)`
-  color: var(--texts);
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 500ms;
+  a {
+    color: var(--texts);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 500ms;
 
-  &:hover {
-    color: var(--highlight);
-    text-decoration: underline;
+    &:hover {
+      color: var(--highlight);
+      text-decoration: underline;
+    }
   }
 `
 

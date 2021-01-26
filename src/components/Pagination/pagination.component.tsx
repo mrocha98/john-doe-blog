@@ -1,4 +1,5 @@
 import React from 'react'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { LeftArrowCircle } from '@styled-icons/boxicons-regular/LeftArrowCircle'
 import { RightArrowCircle } from '@styled-icons/boxicons-regular/RightArrowCircle'
 
@@ -24,23 +25,35 @@ export const Pagination = ({
   return (
     <S.Wrapper>
       {!isFirstPage && (
-        <S.Link to={previousPage}>
+        <AniLink
+          to={previousPage}
+          cover
+          direction="left"
+          bg="#16202c"
+          duration={0.6}
+        >
           <S.IconWrapper hasLeftIcon={true} hasRightIcon={false}>
             <LeftArrowCircle aria-hidden="true" />
             <p>previous page</p>
           </S.IconWrapper>
-        </S.Link>
+        </AniLink>
       )}
       <p>
         {currentPage} of {totalPages}
       </p>
       {!isLastPage && (
-        <S.Link to={nextPage}>
+        <AniLink
+          to={nextPage}
+          cover
+          direction="right"
+          bg="#16202c"
+          duration={0.6}
+        >
           <S.IconWrapper hasLeftIcon={false} hasRightIcon={true}>
             <p>next page</p>
             <RightArrowCircle aria-hidden="true" />
           </S.IconWrapper>
-        </S.Link>
+        </AniLink>
       )}
     </S.Wrapper>
   )

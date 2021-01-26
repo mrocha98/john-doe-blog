@@ -1,4 +1,5 @@
 import React from 'react'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import * as S from './post-item.styles'
 
@@ -21,16 +22,18 @@ export const PostItem = ({
   timeToRead,
   background
 }: PostItemProps) => (
-  <S.Link to={slug}>
-    <S.Wrapper>
-      <S.Tag background={background}>{category}</S.Tag>
-      <S.Info>
-        <S.Date>
-          {date} {!!timeToRead && <>&#43; {timeToRead} minutes of reading</>}
-        </S.Date>
-        <S.Title>{title}</S.Title>
-        <S.Description>{description}</S.Description>
-      </S.Info>
-    </S.Wrapper>
-  </S.Link>
+  <S.Wrapper>
+    <AniLink to={slug} cover direction="left" bg="#16202c">
+      <S.Container>
+        <S.Tag background={background}>{category}</S.Tag>
+        <S.Info>
+          <S.Date>
+            {date} {!!timeToRead && <>&#43; {timeToRead} minutes of reading</>}
+          </S.Date>
+          <S.Title>{title}</S.Title>
+          <S.Description>{description}</S.Description>
+        </S.Info>
+      </S.Container>
+    </AniLink>
+  </S.Wrapper>
 )

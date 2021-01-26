@@ -1,10 +1,26 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
-import { Link as GatsbyLink } from 'gatsby'
 
 import { PostItemProps } from '.'
 
-export const Wrapper = styled.section`
+export const Wrapper = styled.div`
+  a {
+    color: var(--texts);
+    display: flex;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--highlight);
+    }
+
+    body#grid & {
+      background-color: var(--background);
+      height: 100%;
+    }
+  }
+`
+
+export const Container = styled.section`
   align-items: center;
   border-bottom: 1px solid var(--borders);
   display: flex;
@@ -22,20 +38,6 @@ export const Wrapper = styled.section`
     padding: 2rem 1rem;
     flex-direction: column;
     justify-content: center;
-  }
-`
-
-export const Link = styled(GatsbyLink)`
-  color: var(--texts);
-  display: flex;
-  text-decoration: none;
-
-  &:hover {
-    color: var(--highlight);
-  }
-
-  body#grid & {
-    background-color: var(--background);
   }
 `
 

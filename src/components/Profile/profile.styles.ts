@@ -1,26 +1,25 @@
 import styled from 'styled-components'
 import media from 'styled-media-query'
-import { Link as GatsbyLink } from 'gatsby'
 
 export const Wraper = styled.section`
   color: var(--texts);
   display: flex;
   flex-direction: column;
-`
 
-export const Link = styled(GatsbyLink)`
-  color: var(--texts);
-  text-decoration: none;
-  transition: color 500ms;
+  a {
+    color: var(--texts);
+    text-decoration: none;
+    transition: color 500ms;
 
-  &:hover {
-    color: var(--highlight);
+    &:hover {
+      color: var(--highlight);
+    }
+
+    ${media.lessThan('large')`
+      display: flex;
+      text-align: left;
+    `}
   }
-
-  ${media.lessThan('large')`
-    display: flex;
-    text-align: left;
-  `}
 `
 
 export const Author = styled.h1`

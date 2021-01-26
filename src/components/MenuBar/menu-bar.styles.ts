@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import media from 'styled-media-query'
-import { Link as GatsbyLink } from 'gatsby'
 
 // import { MenuBarProps } from '.'
 
@@ -36,14 +35,14 @@ export const Group = styled.div`
   ${media.lessThan('large')`
     flex-direction: row;
   `}
-`
 
-export const Link = styled(GatsbyLink)`
-  display: block;
+  a {
+    display: block;
 
-  &.active {
-    span {
-      color: var(--highlight);
+    &.active {
+      span {
+        color: var(--highlight);
+      }
     }
   }
 `

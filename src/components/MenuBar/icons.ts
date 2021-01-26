@@ -1,0 +1,6 @@
+export { Home } from '@styled-icons/boxicons-solid/Home'
+export { SearchAlt2 as Search } from '@styled-icons/boxicons-regular/SearchAlt2'
+export { UpArrowAlt as Arrow } from '@styled-icons/boxicons-regular/UpArrowAlt'
+export { Bulb as Light } from '@styled-icons/boxicons-regular/Bulb'
+export { Grid } from '@styled-icons/boxicons-solid/Grid'
+export { ThList as List } from '@styled-icons/typicons/ThList'
