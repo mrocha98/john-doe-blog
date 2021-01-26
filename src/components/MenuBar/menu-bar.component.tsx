@@ -13,6 +13,18 @@ export const MenuBar = ({}: MenuBarProps) => {
   const isDarkMode = theme === 'dark'
   const isListMode = display === 'list'
 
+  const onThemeChangeIconClick = () => {
+    window.__setPreferredTheme(isDarkMode ? 'light' : 'dark')
+  }
+
+  const onViewModeChangeIconClick = () => {
+    window.__setPreferredDisplay(isListMode ? 'grid' : 'list')
+  }
+
+  const onGoToTopIconClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   useEffect(() => {
     setTheme(window.__theme)
     setDisplay(window.__display)
@@ -39,22 +51,18 @@ export const MenuBar = ({}: MenuBarProps) => {
         <S.Item
           className={theme || ''}
           title="Change theme"
-          onClick={() => {
-            window.__setPreferredTheme(isDarkMode ? 'light' : 'dark')
-          }}
+          onClick={onThemeChangeIconClick}
         >
           <Light />
         </S.Item>
         <S.Item
           title="Change view mode"
           className="display"
-          onClick={() => {
-            window.__setPreferredDisplay(isListMode ? 'grid' : 'list')
-          }}
+          onClick={onViewModeChangeIconClick}
         >
           {isListMode ? <Grid /> : <List />}
         </S.Item>
-        <S.Item title="Go to top">
+        <S.Item title="Go to top" onClick={onGoToTopIconClick}>
           <Arrow />
         </S.Item>
       </S.Group>
