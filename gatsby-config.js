@@ -8,7 +8,8 @@ module.exports = {
     title: `John Doe blog`,
     position: `Professional Imaginary Person`,
     description: `A blog where John Doe writes cool stuff about anything, from lorem ipsum to random generated numbers.`,
-    author: `John Doe`
+    author: `John Doe`,
+    siteUrl: `https://john-doe-blog.netlify.app`
   },
   plugins: [
     {

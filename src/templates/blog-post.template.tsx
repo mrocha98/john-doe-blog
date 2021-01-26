@@ -11,6 +11,9 @@ type PostData = {
   title: string
   description: string
   date: string
+  image?: {
+    publicURL: string
+  }
 }
 
 type RecommendData = {
@@ -38,15 +41,16 @@ export default function BlogPost({ data, pageContext }: BlogPostProps) {
   const {
     html,
     timeToRead,
-    fields: { slug },
-    frontmatter: { title, description, date }
+    frontmatter,
+    fields: { slug }
   } = data.markdownRemark
 
   const { nextPost, previousPost } = pageContext
+  const { title, description, date, image } = frontmatter
 
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO title={title} description={description} image={image?.publicURL} />
       <S.Header>
         <S.Date>
           {date} &bull; {timeToRead} minutes of reading
@@ -73,6 +77,9 @@ export const query = graphql`
         title
         description
         date(locale: "en-us", formatString: "MMMM DD [of] YYYY")
+        image {
+          publicURL
+        }
       }
       html
       timeToRead
