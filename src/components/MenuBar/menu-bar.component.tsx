@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { Arrow, Grid, Home, Light, List, Search } from './icons'
 
 import * as S from './menu-bar.styles'
+import { AniLink } from 'components/AniLink'
 
 export type MenuBarProps = {}
 
@@ -24,26 +24,12 @@ export const MenuBar = ({}: MenuBarProps) => {
   return (
     <S.Wrapper>
       <S.Group>
-        <AniLink
-          to="/"
-          title="Go back to Home"
-          cover
-          direction="left"
-          bg="#16202c"
-          duration={0.6}
-        >
+        <AniLink to="/" title="Go back to Home" direction="left">
           <S.Item>
             <Home />
           </S.Item>
         </AniLink>
-        <AniLink
-          to="/search/"
-          title="Search"
-          cover
-          direction="left"
-          bg="#16202c"
-          duration={0.6}
-        >
+        <AniLink to="/search/" title="Search" direction="left">
           <S.Item>
             <Search />
           </S.Item>

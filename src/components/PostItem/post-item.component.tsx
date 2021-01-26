@@ -1,7 +1,8 @@
 import React from 'react'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
+// import { getThemeColor } from 'utils/getThemeColor'
 
 import * as S from './post-item.styles'
+import { AniLink } from 'components/AniLink'
 
 export type PostItemProps = {
   slug: string
@@ -23,7 +24,7 @@ export const PostItem = ({
   background
 }: PostItemProps) => (
   <S.Wrapper>
-    <AniLink to={slug} cover direction="left" bg="#16202c">
+    <AniLink to={slug} direction="left">
       <S.Container>
         <S.Tag background={background}>{category}</S.Tag>
         <S.Info>

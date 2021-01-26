@@ -1,7 +1,7 @@
 import React from 'react'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import * as S from './menu-links.styles'
+import { AniLink } from 'components/AniLink'
 import { links } from './content'
 
 export type MenuLinksProps = {}
@@ -12,14 +12,7 @@ export const MenuLinks = ({}: MenuLinksProps) => {
       <S.List>
         {links.map(({ label, url }, index) => (
           <S.Item key={index}>
-            <AniLink
-              cover
-              direction="left"
-              bg="#16202c"
-              duration={0.6}
-              to={url}
-              activeClassName="active"
-            >
+            <AniLink to={url} direction="left">
               {label}
             </AniLink>
           </S.Item>
